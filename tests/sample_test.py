@@ -29,7 +29,7 @@ def test_spam():
 
 
 def test_eggs():
-    """A dozen o eggs must be 12, guvna"""
+    """A dozen o' eggs must be 12, guvna"""
     assert len("dozen o eggs") == 12
 
 
