@@ -6,9 +6,9 @@
 set -eo pipefail
 
 # Run flake8 against all code in the `source_code` directory
-flake8 source_code
+flake8
 echo "flake8 passed!"
 
 # Run black against all code in the `source_code` directory
-black source_code --check
+black
 echo "black passed!"
