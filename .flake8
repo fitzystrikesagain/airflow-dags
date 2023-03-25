@@ -1,4 +1,3 @@
 [flake8]
 extend-ignore = E203, F523
-exclude = .git,__pycache__,venv,docker,bin
 max-complexity = 10
