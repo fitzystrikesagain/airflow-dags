@@ -1,16 +1,9 @@
 from helpers import dagbag
 
-DAG_ID = "parallel_dag"
+DAG_ID = "sleep_ten_seconds"
 dag = dagbag.get_dag(DAG_ID)
-task_ids = [
-    "task_1",
-    "task_2",
-    "task_3",
-    "task_4",
-    "task_5",
-    "task_6"
-]
-
+task_ids = ['start', 'task_1', 'task_2', 'task_3', 'all_done']
+num_tasks = len(task_ids)
 
 def test_catchup_disabled():
     """Catchup should not be enabled"""
@@ -32,11 +25,6 @@ def test_doc_md_exists():
     assert dag.doc_md
 
 
-def test_has_on_failure_callback_exists():
-    """Dag must have an on failure callback"""
-    assert dag.has_on_failure_callback
-
-
 def test_is_not_paused():
     """Dag should not be paused"""
     assert not dag.is_paused
@@ -48,9 +36,10 @@ def test_owner_exists():
 
 
 def test_task_count():
-    """Task count should equal 6"""
-    assert dag.task_count == 6
+    f"""Task count should equal {num_tasks}"""
+    assert dag.task_count == num_tasks
 
 
 def test_task_ids_match_expected_task_ids():
+    """Task IDs must match expected task ids"""
     assert dag.task_ids == task_ids
